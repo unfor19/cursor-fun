@@ -224,3 +224,18 @@ azure-down:
 	cd ${ROOT_DIR} && \
 	azd down
 # --- Azure --- END ------------------------------------------------------------
+
+# --- Cloudflared --- START ------------------------------------------------------------
+##
+###Cloudflared
+##---
+cloudflared-uninstall:
+	cloudflared service uninstall
+
+cloudflared-install:
+	@cloudflared service install $${CLOUDFLARED_SERVICE_TOKEN}
+
+cloudflared-restart:
+	@cloudflared service uninstall 2>/dev/null || true
+	@cloudflared service install $${CLOUDFLARED_SERVICE_TOKEN}
+# --- Cloudflared --- END ------------------------------------------------------------	
