@@ -88,9 +88,25 @@ Some projects require you to setup Azure.
 
 ### Exercises
 
-1. Docker - Definition of done - `make docker-build` and `make docker-run` locally - http://localhost:8004
+### Applicative Features
+
+1. History of conversations
+   - **Definition of done** - Enable end-users to see the history of conversations, just like ChatGPT, and continue the conversation.
+   - TIP: Use [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store the history of conversations, as we don't want to use a database for this project.
+2. Allow removal of conversations
+   - **Definition of done** - Enable end-users to remove a conversation from the history.
+3. Allow renaming of conversations
+   - **Definition of done** - Enable end-users to rename a conversation.
+4. Print used tokens per conversation
+   - **Definition of done** - Print the number of tokens used per conversation.
+
+### Project Features
+
+2. Docker build and push
+   - **Definition of done** - `make docker-build` and `make docker-run` locally - http://localhost:8004
    - Update the [Dockerfile](azureai-basic-python/src/Dockerfile) to be a state of the art Dockerfile.
    - Update the [Makefile](Makefile) to build the Docker image and run the container.
-2. Azure Deployment - Definition of done - `make azure-push` and `make azure-deploy` - update image tag from `azd-deploy-1738301240` to `azd-deploy-fun`
+3. Azure Deployment
+   - **Definition of done** - `make azure-push` and `make azure-deploy` - update image tag from `azd-deploy-1738301240` to `azd-deploy-fun` and validate in Azure Portal
    - Add a command for `make azure-push` to push the Docker image to the Azure Container Registry.
    - Add a command for `make azure-deploy` to deploy the Docker image to the Azure Container Registry.
