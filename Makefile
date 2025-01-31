@@ -128,7 +128,7 @@ venv-freeze: ## List installed packages
 	cd ${ROOT_DIR} && \
 	pip freeze
 
-run: ## Run the application using __main__.py
+run: ## Run the application
 	@cd ${ROOT_DIR} && \
 	if [[ -d ${ROOT_DIR}/${SUBDIR} ]]; then \
 		echo "Running ${PYTHON_SCRIPT} in ${SUBDIR}" ; \
@@ -138,10 +138,6 @@ run: ## Run the application using __main__.py
 		echo "Running ${PYTHON_SCRIPT} in ${ROOT_DIR}" ; \
 		python ${PYTHON_SCRIPT} ; \
 	fi
-
-venv-run: ## Run main app script
-	cd ${ROOT_DIR} && \
-	@python ${ROOT_DIR}/main.py
 
 venv-test-unittests: ## Run unit tests
 	cd ${ROOT_DIR} && \
