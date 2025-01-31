@@ -94,12 +94,12 @@ print-vars: ## Print env vars
 ## 
 ##VENV
 ##----
-venv-prepare: ## Create a Python virtual environment with venv
+prepare: ## Create a Python virtual environment with venv
 	python -m venv ${VENV_DIR_PATH} && \
 	python -m pip install -U pip wheel setuptools build twine && \
 	ls ${VENV_DIR_PATH}
 
-venv-install: ## Install Python packages
+install: ## Install Python packages
 ## Provide PACKAGE_NAME=<package_name> to install a specific package
 ## Example: make venv-install PACKAGE_NAME=requests
 	@cd ${ROOT_DIR} && \
@@ -115,11 +115,11 @@ venv-install: ## Install Python packages
 		exit 1 ; \
 	fi
 
-venv-install-edit: ## Install CLI in editable mode
+install-edit: ## Install CLI in editable mode
 	cd ${ROOT_DIR} && \
 	pip install -e .
 
-venv-requirements-update: ## Update requirements.txt with current packages
+requirements-update: ## Update requirements.txt with current packages
 	cd ${ROOT_DIR} && \
 	pip freeze | grep -v '\-e' > ${REQUIREMENTS_FILE_PATH} && \
 	cat ${REQUIREMENTS_FILE_PATH}
