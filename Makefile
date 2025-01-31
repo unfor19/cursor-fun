@@ -1,4 +1,3 @@
-
 #!make
 .ONESHELL:
 .EXPORT_ALL_VARIABLES:
@@ -21,7 +20,10 @@ include ${ROOT_DIR}/.env
 endif
 
 VENV_DIR_PATH:=${ROOT_DIR}/.VENV
+
+ifndef REQUIREMENTS_FILE_PATH
 REQUIREMENTS_FILE_PATH:=${ROOT_DIR}/requirements.txt
+endif
 
 # --- OS Settings --- START ------------------------------------------------------------
 # Windows
@@ -100,13 +102,12 @@ venv-prepare: ## Create a Python virtual environment with venv
 venv-install: ## Install Python packages
 ## Provide PACKAGE_NAME=<package_name> to install a specific package
 ## Example: make venv-install PACKAGE_NAME=requests
-	@if [[ -f "${REQUIREMENTS_FILE_PATH}" ]]; then \
-		cd ${ROOT_DIR} && \
+	@cd ${ROOT_DIR} && \
+	if [[ -f "${REQUIREMENTS_FILE_PATH}" ]]; then \
 		echo "Installing packages from ${REQUIREMENTS_FILE_PATH}" && \
 		ls ${REQUIREMENTS_FILE_PATH} && \
 		pip install -r "${REQUIREMENTS_FILE_PATH}" ${PACKAGE_NAME} ; \
 	elif [[ -n "${PACKAGE_NAME}" ]]; then \
-		cd ${ROOT_DIR} && \
 		echo "Installing package ${PACKAGE_NAME}" ; \
 		pip install -U ${PACKAGE_NAME} ; \
 	else \
@@ -126,6 +127,17 @@ venv-requirements-update: ## Update requirements.txt with current packages
 venv-freeze: ## List installed packages
 	cd ${ROOT_DIR} && \
 	pip freeze
+
+run: ## Run the application using __main__.py
+	@cd ${ROOT_DIR} && \
+	if [[ -d ${ROOT_DIR}/${SUBDIR} ]]; then \
+		echo "Running ${PYTHON_SCRIPT} in ${SUBDIR}" ; \
+		cd ${ROOT_DIR}/${SUBDIR} && \
+		python ${PYTHON_SCRIPT} ; \
+	else \
+		echo "Running ${PYTHON_SCRIPT} in ${ROOT_DIR}" ; \
+		python ${PYTHON_SCRIPT} ; \
+	fi
 
 venv-run: ## Run main app script
 	cd ${ROOT_DIR} && \
