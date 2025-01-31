@@ -220,4 +220,7 @@ azure-up:
 	cd ${ROOT_DIR} && \
 	azd up
 
+azure-down:
+	cd ${ROOT_DIR} && \
+	azd down
 # --- Azure --- END ------------------------------------------------------------

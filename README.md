@@ -6,9 +6,28 @@ This is a monorepo project, we'll start with a simple python project and then ad
 
 ## Requirements
 
-Read the `README.md` file os each project to see the requirements for each project.
+- [make](https://www.gnu.org/software/make/) 😁
+- [Cursor](https://www.cursor.com/) - The AI Code Editor
+- [Docker Desktop](https://docs.docker.com/get-started/introduction/get-docker-desktop/)
+- Read the `README.md` file os each project to see the requirements for each project. For example, see [azureai-basic-python/README.md](azureai-basic-python/README.md) for the requirements for the azureai-basic-python project.
 
-For example, see [azureai-basic-python/README.md](azureai-basic-python/README.md) for the requirements for the azureai-basic-python project.
+### Azure Setup
+
+Some projects require you to setup Azure.
+
+1. [Register for an Azure account](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account) and create a Pay As You Go subscription.
+1. [Login to Azure](https://docs.cursor.com/azure/login)
+   ```bash
+   make azure-login
+   ```
+2. Provision and deploy all the resources
+   ```bash
+   make azure-up
+   ```
+3. Delete the resources when you are done with the project
+   ```bash
+   make azure-down
+   ```
 
 ### Getting Started
 
@@ -46,3 +65,32 @@ For example, see [azureai-basic-python/README.md](azureai-basic-python/README.md
    ```bash
    make run
    ```
+
+## Cursor
+
+### Modes
+
+- [Chat](https://docs.cursor.com/chat/overview) (<kbd>CMD</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>) - Like ChatGPT, but with the option to provide context from the codebase.
+  - Supported models - Any, including Deepseek R1 🙂
+- [Composer](https://docs.cursor.com/composer/overview) (<kbd>CMD</kbd> + <kbd>I</kbd>) - Local AI agent that can read, write and run code.
+  - Supported models
+    - **Claude 3.5 Sonnet** - `claude-3-5-sonnet-20241022`
+    - **Chat GPT 4o** - `gpt-4o`
+  - Modes
+    - `normal` - Normal mode, where the agent will read and edit code.
+    - `agent` (**Preferred**) - Agent mode, where the agent will read, write and run code. If running in YOLO mode, the agent will run commands without prompting (e.g. `make run`).
+
+### Features
+
+- [Context](https://docs.cursor.com/context/@-symbols/basic) - Files, Folders, Docs, etc.
+- [Cursor Rules](https://docs.cursor.com/context/rules-for-ai) - See examples [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules)
+- [MCP](https://modelcontextprotocol.io/introduction) - Model Context Protocol - "..MCP provides a standardized way to connect AI models to different data sources and tools." See examples [MCP Servers](https://github.com/modelcontextprotocol/servers)
+
+### Exercises
+
+1. Docker - Definition of done - `make docker-build` and `make docker-run` locally - http://localhost:8004
+   - Update the [Dockerfile](azureai-basic-python/src/Dockerfile) to be a state of the art Dockerfile.
+   - Update the [Makefile](Makefile) to build the Docker image and run the container.
+2. Azure Deployment - Definition of done - `make azure-push` and `make azure-deploy` - update image tag from `azd-deploy-1738301240` to `azd-deploy-fun`
+   - Add a command for `make azure-push` to push the Docker image to the Azure Container Registry.
+   - Add a command for `make azure-deploy` to deploy the Docker image to the Azure Container Registry.
