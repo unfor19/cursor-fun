@@ -1,2 +1,6 @@
 .*
 !.*ignore
+!.pre-commit-config.yaml
+!.github
+!.devcontainer
+!.azdo
