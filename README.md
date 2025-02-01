@@ -1,4 +1,18 @@
-# cursor-fun
+# cursor-fun <!-- omit in toc -->
+
+- [Requirements](#requirements)
+  - [Azure Setup](#azure-setup)
+- [Azure Deployment Architecture](#azure-deployment-architecture)
+  - [Key Relationships](#key-relationships)
+  - [Monitoring \& Security Components](#monitoring--security-components)
+- [Getting Started](#getting-started)
+- [Cursor](#cursor)
+  - [Modes](#modes)
+  - [Features](#features)
+- [Exercises](#exercises)
+  - [Applicative Features](#applicative-features)
+  - [Project Features](#project-features)
+
 
 A simple project to learn how to use cursor.
 
@@ -89,6 +103,8 @@ graph TD
 
 ## Getting Started
 
+This section is for running the project locally.
+
 1. Copy `env` to `.env` and update the `PROJECT_NAME`
    ```bash
    cp env .env
@@ -111,7 +127,7 @@ graph TD
     REQUIREMENTS_FILE_PATH=src/requirements.txt
     ```
 
-2. Prepare the virtual environment
+2. Prepare the [virtual environment](https://docs.python.org/3/library/venv.html)
    ```bash
    make prepare
    ```
@@ -119,7 +135,7 @@ graph TD
    ```bash
    make install
    ```
-4. Run the application
+4. Run the application locally
    ```bash
    make run
    ```
@@ -144,7 +160,7 @@ graph TD
 - [Cursor Rules](https://docs.cursor.com/context/rules-for-ai) - See examples [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules)
 - [MCP](https://modelcontextprotocol.io/introduction) - Model Context Protocol - "..MCP provides a standardized way to connect AI models to different data sources and tools." See examples [MCP Servers](https://github.com/modelcontextprotocol/servers)
 
-### Exercises
+## Exercises
 
 ### Applicative Features
 
