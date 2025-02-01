@@ -1,5 +1,7 @@
 # cursor-fun <!-- omit in toc -->
 
+Explore [Cursor](https://www.cursor.com/) with this engaging project—learn by doing! 💪🏻
+
 ![DALL·E 2025-02-01 13 29 34 - A futuristic AI agent actively writing code in a modern IDE, designed specifically for a 1000x500 pixel layout  The AI appears as a holographic presen](https://github.com/user-attachments/assets/c6e1b3b8-5e46-4b8e-80e0-c256ebebea78)
 
 - [Requirements](#requirements)
@@ -14,11 +16,6 @@
 - [Exercises](#exercises)
   - [Applicative Features](#applicative-features)
   - [Project Features](#project-features)
-
-
-A simple project to learn how to use cursor.
-
-This is a monorepo project, we'll start with a simple python project and then add more projects to it.
 
 ## Requirements
 
