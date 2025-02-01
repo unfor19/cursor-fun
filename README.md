@@ -29,7 +29,65 @@ Some projects require you to setup Azure.
    make azure-down
    ```
 
-### Getting Started
+
+
+## Azure Deployment Architecture
+
+<details>
+<summary>Click to expand</summary>
+
+When deployed to Azure using `make azure-up`, the following resources are created:
+
+| Resource | Purpose | Key Features |
+|----------|---------|--------------|
+| **Azure AI Hub** | Central AI management | Coordinates AI services, manages connections |
+| **Azure AI Project** | Workspace configuration | Organizes resources for specific AI applications |
+| **Azure OpenAI Service** | Language processing | Provides GPT models for chat/completions |
+| **Key Vault** | Secret management | Securely stores API keys and credentials |
+| **Container Apps** | Application hosting | Runs your Python API in serverless containers |
+| **Managed Identity** | Secure access | Provides automatic credentials for Azure resources |
+| **Application Insights** | Monitoring | Tracks application performance and errors |
+| **Log Analytics** | Centralized logging | Aggregates logs from all services |
+
+**Security Features**:
+- Automatic secret management via Key Vault
+- Managed Identity for service authentication
+- Secure connections between AI services
+- Built-in monitoring and alerting
+
+### Key Relationships
+1. Container App uses Managed Identity to access:
+   - Azure OpenAI for AI processing
+   - Key Vault for secure credentials
+2. AI Hub manages connections between:
+   - Storage Account (file storage)
+   - AI Services (model endpoints)
+3. Monitoring flows to:
+   - Application Insights → Log Analytics → Action Groups
+
+### Monitoring & Security Components
+
+| Resource | Purpose |
+|----------|---------|
+| **Action Group** | Defines notification channels (email/SMS) for alerts |
+| **Smart Detector Alert Rule** | Automatically detects application anomalies |
+| **Container Registry** | Private repository for Docker images |
+| **Container Apps Environment** | Secure platform for running containers |
+
+**Full Resource Map:**
+```mermaid
+graph TD
+    A[Container App] -->|Runs in| B[Container Apps Environment]
+    A -->|Stores images in| C[Container Registry]
+    D[AI Hub] -->|Manages| E[AI Project]
+    E -->|Connects to| F[AI Services]
+    G[Key Vault] -->|Secures| H[Managed Identity]
+    I[Application Insights] -->|Sends to| J[Log Analytics]
+    K[Smart Detector] -->|Triggers| L[Action Group]
+```
+</details>   
+
+## Getting Started
 
 1. Copy `env` to `.env` and update the `PROJECT_NAME`
    ```bash
