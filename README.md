@@ -29,15 +29,15 @@ Explore [Cursor](https://www.cursor.com/) with this engaging project—learn by 
 Some projects require you to setup Azure.
 
 1. [Register for an Azure account](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account) and create a Pay As You Go subscription.
-1. [Login to Azure](https://docs.cursor.com/azure/login)
+2. [Login to Azure](https://portal.azure.com/#home)
    ```bash
    make azure-login
    ```
-2. Provision and deploy all the resources
+3. Provision and deploy all the resources
    ```bash
    make azure-up
    ```
-3. Delete the resources when you are done with the project
+4. Delete the resources when you are done with the project
    ```bash
    make azure-down
    ```
