@@ -1,5 +1,7 @@
 # cursor-fun <!-- omit in toc -->
 
+![DALL·E 2025-02-01 13 29 34 - A futuristic AI agent actively writing code in a modern IDE, designed specifically for a 1000x500 pixel layout  The AI appears as a holographic presen](https://github.com/user-attachments/assets/c6e1b3b8-5e46-4b8e-80e0-c256ebebea78)
+
 - [Requirements](#requirements)
   - [Azure Setup](#azure-setup)
 - [Azure Deployment Architecture](#azure-deployment-architecture)
