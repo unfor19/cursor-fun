@@ -172,6 +172,8 @@ This section is for running the project locally.
    - **Definition of done** - Enable end-users to rename a conversation.
 4. Print used tokens per conversation
    - **Definition of done** - Print the number of tokens used per conversation.
+5. Mobile friendly
+   - **Definition of done** - Enable end-users to use the application on mobile devices.
 
 ### Project Features
 
